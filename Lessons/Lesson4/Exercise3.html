@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        <script>
+        var asd = document.getElementById("input").value;
+            function x1(){
+                asd = document.getElementById("input").value;
+                return asd.match(/^-?\d$/);
+            }
+            function x2(){
+                asd = document.getElementById("input").value;
+                return asd.match(/^\d{5}$/);
+            }
+            function x3(){
+                asd = document.getElementById("input").value;
+                return asd.match(/^yes|no$/i);
+            }
+            
+            function check(x){
+                if(x){
+                    document.getElementById("teksti").innerHTML = "Good job!";
+                }
+                else{
+                    document.getElementById("teksti").innerHTML = "Error: Input needs to be yes or no";
+                }
+            }
+        </script>
+        
+        <input type="text" name="" id="input"/>
+        <input type="button" value="Check" onclick="check(x3())"/>
+        
+        <p id="teksti">Input Yes or No</p>
+    </body>
+</html>

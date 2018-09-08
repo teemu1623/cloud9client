@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            var x = 0;
+            function add(y){
+                x = x + y;
+                document.getElementById("value").innerHTML = x;
+            }
+            function multiply(){
+                x = x * 2;
+                document.getElementById("value").innerHTML = x;
+            }
+            function divide(){
+                x = Math.floor(x / 2);
+                document.getElementById("value").innerHTML = x;
+            }
+            function add(y){
+                x = x + y;
+                document.getElementById("value").innerHTML = x;
+            }
+            function reset(){
+                x = 0;
+                document.getElementById("value").innerHTML = x;
+            }
+        </script>
+    </head>
+    <body>
+        <p id="value">0</p>
+        <input type="button" value="+1" onclick="add(1)"/>
+        <input type="button" value="-1" onclick="add(-1)"/>
+        <input type="button" value="*2" onclick="multiply()"/>
+        <input type="button" value="/2" onclick="divide()"/>
+        <input type="button" value="0" onclick="reset()"/>
+    </body>
+</html>

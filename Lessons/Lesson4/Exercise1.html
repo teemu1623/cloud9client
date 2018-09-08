@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+    </head>
+    <body>
+        <script>
+            function checkPassword(){
+                var pass1 = document.getElementById("password1").value;
+                var pass2 = document.getElementById("password2").value;
+                
+                if(passwordMeetsRequirements(pass1) && passwordMeetsRequirements(pass2)){
+                    if(pass1 == pass2){
+                        document.getElementById("result").innerHTML = "Success";
+                    }
+                    else document.getElementById("result").innerHTML = "Error: Passwords doesn't match";
+                }
+                else document.getElementById("result").innerHTML = "Error: The password must have 8...30 characters and can only contain the following characters: a-z, A-Z, 0-9 and .,_-";
+            }
+            function passwordMeetsRequirements(pass){
+                return pass.match(/^([\w|\d|[.,_-]){8,30}$/);
+            }
+        </script>
+        
+        <form action="">
+            <label for="password1">Password</label>
+            <br>
+            <input type="text" id="password1" size="30">
+            <br>
+            <label for="password2">Confirm Password</label>
+            <br>
+            <input type="text" id="password2" size="30">
+            <br>
+            <input type="button" value="Login" onclick="checkPassword()"/>
+            <br><br>
+            <output id="result">asd</output>
+            
+        </form>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo">Koordinaatit</p>
+<p id="demo2">Linkki</p>
+<p id="demo3">3</p>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+var x = document.getElementById("demo");
+var y = document.getElementById("demo2");
+
+
+function getLocation() {
+    
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+    
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    
+    var radius = 5000;
+    var type = "restaurant";
+    
+    var key = "AIzaSyC8qvq0DiQX0rMtit6MH1-bdGXrE17-RLw";
+    var linkki = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&rankby=distance&type=" + type + "&key=" + key;
+    y.innerHTML = linkki.link(linkki);
+    testi(linkki);
+}
+function testi(linkki){
+var obj = JSON.parse(linkki);
+document.getElementById("demo3").innerHTML =
+obj.results[1].name;
+}
+
+
+
+</script>
+
+</body>
+</html>

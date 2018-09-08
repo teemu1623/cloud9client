@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Write your age in the text field to get your birth year</p>
+
+<input type="number" id="myInput" min="0" max="200" autofocus oninput="myFunction()">
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var input = document.getElementById("myInput").value;
+    var year = new Date().getFullYear() - input;
+    var bc = ""
+    if (year<0) {
+        bc = " BC";
+        year = year * -1;
+    }
+    document.getElementById("demo").innerHTML = "Your birth year: " + year + bc;
+}
+</script>
+
+</body>
+</html>

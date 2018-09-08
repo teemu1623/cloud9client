@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button</p>
+
+<button onclick="test()">Try It</button>
+
+<p id="demo">Test</p>
+<script>
+var link = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=60.734524,24.7729939&rankby=distance&type=restaurant&key=AIzaSyC8qvq0DiQX0rMtit6MH1-bdGXrE17-RLw";
+
+function test(){
+    var gjson;
+    gjson = getJSON(link);
+    document.getElementById("demo").innerHTML = gjson;
+}
+
+function getJSON(url) {
+        var resp ;
+        var xmlHttp ;
+
+        resp  = '' ;
+        xmlHttp = new XMLHttpRequest();
+
+        if(xmlHttp != null)
+        {
+            xmlHttp.open( "GET", url, false );
+            xmlHttp.send( null );
+            resp = xmlHttp.responseText;
+        }
+        return resp ;
+    }
+</script>
+</body>
+</html>
